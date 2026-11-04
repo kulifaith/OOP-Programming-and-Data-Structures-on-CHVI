@@ -1,0 +1,33 @@
+
+Climate-Health Vulnerability Index for Uganda
+Kuli Faith Rombe (2025/HD06/22009U)
+OOP Programming and Data Structures Implementation
+
++------------------------------------------------------------------+
+|  CLIMATE-HEALTH VULNERABILITY INDEX (CHVI) FOR UGANDA            |
+|  UDHS 2022 + Open-Meteo climate | FAMD | multilevel logit | chi2 |
++------------------------------------------------------------------+
+|  DATA (Start with option 13 to input the file path then load)    |
+|   1. Load UDHS (.dta) and weather (.csv) data                    |
+|   2. Dataset summary (fever prevalence, residence)               |
+|   3. Climate anomalies by region (Eq. 2)                         |
+|   4. Recoding, missing data and imputation                       |
+|  OBJECTIVE 1 : CONSTRUCT THE CHVI                                |
+|   5. Factor Analysis of Mixed Data and indicator weights         |
+|   6. Construct and classify the CHVI                             |
+|   7. Construct validity                                          |
+|   8. Robustness checks (components, bootstrap, regression)       |
+|  OBJECTIVE 2 : ASSOCIATION WITH CHILD FEVER                      |
+|   9. Multilevel logistic regression models (M0-M3)               |
+|  OBJECTIVE 3 : RESIDENCE DISPARITIES                             |
+|  10. Rural-urban chi-square test                                 |
+|  TOOLS                                                           |
+|  11. Most vulnerable households and regional ranking             |
+|  12. Run the complete pipeline                                   |
+|  13. Settings (files, components, bootstrap size, top-k)         |
+|  14. Run self-tests                                              |
+|  15. Export full report to file                                  |
+|  16. Export household-level results (CSV)                        |
+|   0. Exit                                                        |
++------------------------------------------------------------------+
+Enter your choice: 

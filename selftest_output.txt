@@ -1,0 +1,90 @@
+
+==============================================================================
+ SELF-TEST SUITE
+==============================================================================
+Linear algebra
+  [PASS] Jacobi eigenvalues of [[2,1],[1,2]] are 3 and 1  (3, 1)
+  [PASS] V D V' reconstructs a random 7x7 symmetric matrix  (max err 5.33e-15)
+  [PASS] eigenvectors are orthonormal  (max dev 1.33e-15)
+  [PASS] A * inverse(A) = I  (max dev 1.78e-15)
+  [PASS] singular matrix inverse throws an exception
+Statistical functions
+  [PASS] Gauss-Hermite: sum w = sqrt(pi)  (1.77245)
+  [PASS] Gauss-Hermite: sum w x^2 = sqrt(pi)/2  (0.886227)
+  [PASS] Gauss-Hermite: sum w x^4 = 3 sqrt(pi)/4  (1.32934)
+  [PASS] chi-square SF(3.841459; 1) = 0.05
+  [PASS] chi-square SF(5.991465; 2) = 0.05
+  [PASS] chi-square SF(9.487729; 4) = 0.05
+  [PASS] chi-square SF(279.45; 4) < 2.2e-16 (Chapter 4 magnitude)
+  [PASS] normal two-sided p at z = 1.96 is 0.05
+  [PASS] Spearman with ties = 8/sqrt(95) = 0.82078  (0.820783)
+  [PASS] Spearman of a monotone transform is 1
+  [PASS] Pearson of perfectly negative data is -1
+  [PASS] median of {5,1,3,2} is 2.5
+  [PASS] OLS recovers y = 1 + 2x exactly
+Variable classes (Eq. 3 / Eq. 4 and category scores)
+  [PASS] Eq.(3) min-max: normalise(2.5) = 0.25
+  [PASS] Eq.(4) reversed: normalise(2.5) = 0.75
+  [PASS] ordinal default score = code/(q-1): 0, 0.5, 1
+  [PASS] explicit score table; unscored category gives NaN
+  [PASS] polymorphism: kind() through base reference
+  [PASS] schema has 16 indicators (4 E, 4 S, 8 A)
+  [PASS] 4 continuous + 12 categorical indicators
+  [PASS] Eq.(8): (0.6 + 0.9 - 0.3)/3 = 0.4
+  [PASS] classifier cut-points -1.5,-0.5,0.5,1.5 (left-closed): -2,-1.5,-1,0,1,2 -> 0,1,1,2,3,4
+DHS recoding rules (R case_when blocks)
+  [PASS] water: 21 -> Improved, 32 -> Unimproved, 81 -> Surface, 96/NaN -> NA
+  [PASS] water time: 2 -> on premises, 10 -> <=30, 31 -> >30, 998 / NaN -> NA
+  [PASS] blank v115 can be coded 'On premises' by option
+  [PASS] fuel: 5 Kerosene, 6 Coal/Lignite, 7 Charcoal, 8 Wood, NaN Other
+  [PASS] roof/floor/wall/toilet recodes
+  [PASS] birth weight: 3200 normal, 2000 low, 9998/NaN unknown
+Weather processing (Eq. 2)
+  [PASS] exact duplicate row removed  (1)
+  [PASS] one region, baseline = 30 years, recent = 2 years
+  [PASS] temperature z = (14 - mean)/sd of 30 annual means  (6.88234)
+  [PASS] precipitation: duplicate-day values are summed  (1.06667)
+  [PASS] zero-variance series gives z = 0 (humidity, wind)
+Chi-square test of independence
+  [PASS] 2x2 table [[10,20],[30,40]]: chi2 = 0.79365 (hand calculation)  (0.793651)
+  [PASS] df = 1 and Cramer's V = sqrt(chi2/N)
+  [PASS] p-value equals chi-square SF  (0.372998)
+  [PASS] independent table gives chi2 = 0 and p = 1
+Multilevel logistic regression (parameter recovery)
+  [PASS] optimiser converged
+  [PASS] beta0 recovered (true -0.5)  (-0.5962)
+  [PASS] beta1 recovered (true 0.8)  (0.7859)
+  [PASS] sigma recovered (true 0.7)  (0.7264)
+  [PASS] standard errors are positive and finite
+  [PASS] true beta1 inside the 95% Wald interval
+  [PASS] AIC = 2k - 2 logLik with k = 3
+  [PASS] ICC = sigma^2/(sigma^2 + pi^2/3)
+Data structures
+  [PASS] TopK heap keeps the 3 largest in descending order
+  [PASS] AuditLog queue keeps only the latest 2 entries
+Real data (UDHS Kids Recode + weather): independent counts and Chapter 4 replication
+  [PASS] Stata reader: format 118, 1436 observations, 6356 variables  (6356 vars, 1436 obs)
+  [PASS] v025 urban = 426 (pandas)
+  [PASS] v190 wealth counts 382/287/268/247/252 (pandas)
+  [PASS] h22: 352 yes, 936 no, 16 'don't know', 132 blank (pandas)
+  [PASS] double/float missing values read as NaN: v115 275 blanks, m19_1 248 blanks (pandas)  (275, 248)
+  [PASS] 995 households in 586 clusters; 1436 children
+  [PASS] fever: 352 yes / 936 no / 148 missing (Chapter 4, Table 1)
+  [PASS] missing before imputation: water source 2, water time 211 (pandas)
+  [PASS] after FAMD imputation every categorical code is valid
+  [PASS] climate z (Kampala humidity = -3.805, Karamoja temperature = 0.360; pandas)
+  [PASS] FAMD: J = 46 design columns, 34 dimensions, total inertia 34
+  [PASS] FAMD: eigenvalues sum to total inertia
+  [PASS] FAMD: 4 components explain 30.6% (Chapter 4: 30.6%)  (30.583)
+  [PASS] weights: wealth 0.517, cooking fuel 0.377, wall 0.347, floor 0.329 (Chapter 4)
+  [PASS] exposure weights lie between 0.125 and 0.199 (Chapter 4)
+  [PASS] CHVI classes 77/252/310/307/49 (Chapter 4, Table 2)
+  [PASS] CHVI* has mean 0 and SD 1
+  [PASS] construct validity r = +0.867 (S), -0.904 (A), +0.557 (E) (Chapter 4, Table 3)
+  [PASS] rural-urban chi-square = 279.45, df = 4, p < 2.2e-16 (Chapter 4)  (279.446)
+  [PASS] Spearman rho (K=4 vs K=12) = 0.998 (Chapter 4)
+  [PASS] AIC M0..M3 = 1488.7 / 1474.7 / 1496.3 / 1483.0 (Chapter 4, Table 4)  (1488.74 / 1474.68 / 1496.32 / 1483)
+  [PASS] all four models converged; 1288 children
+  [PASS] CHVI coefficient in M1 is positive and significant (p < 0.001)
+------------------------------------------------------------------------------
+ 75 / 75 checks passed

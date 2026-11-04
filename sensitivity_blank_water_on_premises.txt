@@ -1,0 +1,318 @@
+[no data in memory - loading the UDHS and weather files]
+Reading weather file : data/weather_Uganda_daily_1991_2022.csv
+  168029 daily rows, 4380 exact duplicates dropped, 163632 region-days, 14 regions
+Reading DHS Kids Recode: data/UGKR7BFL_10PERCENT.dta
+  1436 child records -> 995 households in 586 clusters; 3 missing categorical cells imputed (FAMD, ncp = 2, 1 iterations)
+
+==============================================================================
+ DATASET SUMMARY  (cf. Table 1 of Chapter 4)
+==============================================================================
+Child records (Kids Recode)  : 1436
+Households (distinct v001+v002): 995
+Enumeration areas (clusters) : 586
+Urban households             : 319 (32.1%)   Rural: 676 (67.9%)
+
+Prevalence of child fever (h22, last 2 weeks)
+  Category                     n    Percent
+  No                         936       65.2%
+  Yes                        352       24.5%
+  Missing / don't know       148       10.3%
+  Total                     1436   100.0%
+
+Households per region
+  Kampala                  63
+  Buganda                 143
+  Busoga                   91
+  Bukedi                   55
+  Bugisu                   53
+  Teso (Sebei & Teso)      65
+  Karamoja                 55
+  Lango                    71
+  Acholi                   65
+  West Nile                78
+  Bunyoro                  76
+  Tooro                    73
+  Ankole                   67
+  Kigezi                   40
+
+==============================================================================
+ CLIMATE EXPOSURE: STANDARDISED ANOMALIES  (Eq. 2)
+==============================================================================
+Weather file: 168029 daily rows; 4380 exact duplicates removed; 163632 region-days.
+z = (mean 2021-22 - mean 1991-2020) / SD of the 30 annual values 1991-2020
+(annual temperature, humidity, wind = mean of daily values; precipitation = annual total)
+
+Region                       Temperature (C) Precipitation (mm/yr)          Humidity (%)            Wind (m/s)
+Acholi                                -0.174                -1.978                -1.449                 1.103
+Ankole                                 0.240                -1.725                -1.994                 2.069
+Buganda                                1.090                -0.891                -2.720                 3.506
+Bugisu                                -1.151                -2.375                -1.927                -2.074
+Bukedi                                 0.438                -0.197                 0.277                 2.813
+Bunyoro                               -1.206                -2.369                -2.166                 2.896
+Busoga                                 0.099                 0.198                -2.394                 3.168
+Kampala                                0.010                -2.407                -3.805                 0.008
+Karamoja                               0.360                 0.133                -1.032                 0.450
+Kigezi                                -1.939                -1.947                -0.107                 2.039
+Lango                                  0.351                -1.714                -1.680                 1.465
+Teso (Sebei & Teso)                    0.355                 0.201                -1.128                 0.845
+Tooro                                 -0.241                -0.908                -2.109                 2.497
+West Nile                             -1.014                 0.636                -0.147                -0.156
+
+Raw anomaly (2021-22 minus 1991-2020 mean)
+Region                       Temperature (C) Precipitation (mm/yr)          Humidity (%)            Wind (m/s)
+Acholi                                 -0.06               -324.98                 -3.37                  0.42
+Ankole                                  0.09               -394.58                 -4.80                  0.67
+Buganda                                 0.46               -140.57                 -6.18                  1.41
+Bugisu                                 -0.31              -3508.72                 -6.05                 -0.61
+Bukedi                                  0.16                -54.52                  0.58                  0.96
+Bunyoro                                -0.49              -1273.90                 -4.89                  1.30
+Busoga                                  0.03                 49.28                 -3.90                  1.63
+Kampala                                 0.00               -469.19                 -4.93                  0.00
+Karamoja                                0.17                 27.84                 -3.69                  0.30
+Kigezi                                 -0.82               -518.27                 -0.21                  0.79
+Lango                                   0.13               -300.85                 -4.17                  0.61
+Teso (Sebei & Teso)                     0.14                 38.75                 -2.83                  0.23
+Tooro                                  -0.07               -207.22                 -5.51                  2.64
+West Nile                              -0.40                 88.96                 -0.35                 -0.03
+
+==============================================================================
+ RECODING, MISSING DATA AND IMPUTATION
+==============================================================================
+Distribution of the recoded categorical indicators over 995 households (after imputation)
+
+  Type of cooking fuel (v161)   [missing before imputation: 0]
+      Charcoal                      57
+      Coal/Lignite                 681
+      Kerosene                     240
+      Other                         16
+      Wood                           1
+
+  Main roof material (v129)   [missing before imputation: 0]
+      Natural/Traditional          313
+      Iron Sheets                  668
+      Modern/Other                  14
+
+  Main floor material (v127)   [missing before imputation: 0]
+      Natural                      613
+      Cement                       328
+      Modern/Other                  54
+
+  Main wall material (v128)   [missing before imputation: 0]
+      Natural/Temporary             28
+      Unimproved Traditional       436
+      Semi-Durable                 117
+      Durable/Modern               414
+
+  Wealth quintile (v190)   [missing before imputation: 0]
+      Poorest                      245
+      Poorer                       199
+      Middle                       184
+      Richer                       167
+      Richest                      200
+
+  Education level (v106)   [missing before imputation: 0]
+      No education                  94
+      Primary                      584
+      Secondary                    274
+      Higher                        43
+
+  Drinking water source (JMP, v113)   [missing before imputation: 2]
+      Improved                     847
+      Unimproved                    86
+      Surface Water                 62
+
+  Time to water source (v115)   [missing before imputation: 1]
+      On premises                  222
+      <= 30 minutes                521
+      > 30 minutes                 252
+
+  Toilet facility (v116)   [missing before imputation: 0]
+      Other / Unknown                1
+      Improved                     503
+      Unimproved                   429
+      Open Defecation               62
+
+  Owns a mobile phone (v169a)   [missing before imputation: 0]
+      No                           433
+      Yes                          562
+
+  Has a bank account (q930a)   [missing before imputation: 0]
+      Yes                           86
+      No                           909
+
+  Owns land (v745b)   [missing before imputation: 0]
+      Does not own                 543
+      Alone only                    43
+      Jointly only                 357
+      Both alone and jointly        52
+
+Imputed cells (FAMD, ncp = 2): 3 in 1 iterations
+  toilet: 1 households have a category without a score -> column median used
+
+Note: v115 is blank for 1 of the households (water piped on the premises). They are coded 'On premises'.
+
+==============================================================================
+ FACTOR ANALYSIS OF MIXED DATA  (Section 3.7.3)
+==============================================================================
+Active variables: 16 (4 continuous, 12 categorical)   design columns J = 46   dimensions = 34
+Total inertia = 34.000  (= N1 + sum(q-1))
+
+Dim     Eigenvalue  % Variance  Cumulative
+1            5.217     15.345%     15.345%
+2            2.225      6.544%     21.889%
+3            1.822      5.359%     27.248%
+4            1.447      4.256%     31.504%   <- retained
+5            1.310      3.852%     35.356%
+6            1.265      3.720%     39.076%
+7            1.206      3.548%     42.624%
+8            1.178      3.465%     46.089%
+9            1.119      3.290%     49.379%
+10           1.073      3.155%     52.534%
+11           1.038      3.053%     55.587%
+12           1.013      2.980%     58.567%
+13           0.978      2.878%     61.445%
+14           0.957      2.814%     64.258%
+
+Retained components K = 4 explain 31.5% of total variance.  Kaiser criterion (eigenvalue > 1): 12 components.
+
+Eigenvalue-weighted indicator weights (Eq. 5; coordinates = r^2 or eta^2 as FactoMineR)
+#   Indicator                           Domain       Type           Weight
+1   Wealth quintile (v190)              Adaptive     ordinal         0.535
+2   Type of cooking fuel (v161)         Sensitivity  nominal         0.376
+3   Main wall material (v128)           Sensitivity  nominal         0.345
+4   Main floor material (v127)          Sensitivity  nominal         0.333
+5   Main roof material (v129)           Sensitivity  nominal         0.255
+6   Toilet facility (v116)              Adaptive     nominal         0.240
+7   Education level (v106)              Adaptive     ordinal         0.232
+8   Relative humidity anomaly           Exposure     continuous      0.202
+9   Time to water source (v115)         Adaptive     ordinal         0.196
+10  Owns a mobile phone (v169a)         Adaptive     nominal         0.148
+11  Precipitation anomaly               Exposure     continuous      0.132
+12  Temperature anomaly (2 m)           Exposure     continuous      0.128
+13  Wind speed anomaly (10 m)           Exposure     continuous      0.120
+14  Has a bank account (q930a)          Adaptive     nominal         0.114
+15  Owns land (v745b)                   Adaptive     ordinal         0.102
+16  Drinking water source (JMP, v113)   Adaptive     nominal         0.051
+
+==============================================================================
+ CONSTRUCTION AND CLASSIFICATION OF THE CHVI  (Eqs. 6-9)
+==============================================================================
+Dimension indices (weighted average of normalised indicators, Eq. 6)
+  Dimension                  Mean       SD      Min      Max
+  Exposure (E)              0.553    0.163    0.219    0.865
+  Sensitivity (S)           0.617    0.196    0.143    0.928
+  Adaptive capacity (A)     0.487    0.217    0.031    1.000
+  CHVI raw  (E+S-A)/3       0.228    0.153   -0.159    0.518
+  CHVI* (z-score, Eq. 9)    0.000    1.000   -2.531    1.894
+
+Shape of CHVI*: skewness = -0.295, excess kurtosis = -0.769
+
+Classification (cut-points on CHVI*: -1.500 -0.500 0.500 1.500 )
+  Vulnerability level   Households     Percent
+  Very Low                      81        8.1%
+  Low                          242       24.3%
+  Moderate                     313       31.5%
+  High                         317       31.9%
+  Very High                     42        4.2%
+  Total                        995    100.0%
+
+==============================================================================
+ CONSTRUCT VALIDITY  (Section 3.7.4)
+==============================================================================
+Expected signs under the IPCC framework: S (+), A (-), E (+)
+
+Relationship                         r    Interpretation    Expected
+CHVI <-> Sensitivity             0.865  Strong +    positive   [OK]
+CHVI <-> Adaptive Capacity      -0.907  Strong -    negative   [OK]
+CHVI <-> Exposure                0.568  Moderate +  positive   [OK]
+
+==============================================================================
+ ROBUSTNESS OF THE INDEX  (Section 3.7.4)
+==============================================================================
+Running 200 cluster-bootstrap replicates ...
+
+1. Component retention : K=4 vs K=12   (Kaiser would keep 12)        Spearman rho = 0.998
+2. Cluster bootstrap   : B=200  median rho = 1.000  range [0.998, 1.000]
+      (FAMD weights re-estimated on each resample of enumeration areas, then applied to ALL households)
+3. Regression weights  : train clusters = 293 (632 children), test clusters = 293 (501 households)
+      empirical weights  E = 0.339  S = 0.168  A = 0.492   (equal weights = 0.333 each)
+      Spearman rho (equal-weighted vs regression-weighted, test set) = 0.991
+      Repeated over 100 random cluster splits: rho median 0.977, range [0.671, 0.996]
+      empirical-weight ranges over the splits:  E [0.037, 0.822]  S [0.004, 0.393]  A [0.021, 0.767]  (unstable -> equal weights preferred)
+
+Decision rule: the index is 'acceptably robust' when every rho >= 0.80.
+H01 (index does not exhibit acceptable robustness): REJECTED -> the CHVI is robust.
+
+==============================================================================
+ MULTILEVEL LOGISTIC MODELS FOR CHILD FEVER  (Eq. 10)
+==============================================================================
+Children with observed fever status (h22 = 1 or 2): 1288  in 586 clusters.  Adaptive Gauss-Hermite quadrature, 1 node (= Laplace approximation, as lme4::glmer default).
+
+Model                                              LogLik       AIC     dAIC    sigma     ICC
+M0 Null (random intercept only)                   -742.37   1488.74       --     0.94    0.21
+M1 Contextual (CHVI + Residence + Radio)          -731.52   1473.04   -15.70     0.88    0.19
+M2 Individual (Age+Sex+BirthOrder+BirthWt)        -741.16   1496.32     7.58     0.94    0.21
+M3 Full (Contextual + TV + Individual)            -729.74   1481.47    -7.27     0.88    0.19
+
+Preferred specification (lowest AIC): M1 Contextual (CHVI + Residence + Radio)
+Likelihood-ratio test M1 vs M0: chi2(3) = 21.70,  p = 7.53e-05
+
+Fixed effects of M1 Contextual (CHVI + Residence + Radio)
+  Term                         Beta       SE        z         p       OR       95% CI (OR)
+  (Intercept)                -0.967    0.188   -5.138     0.000    0.380      [0.26, 0.55]
+  CHVI (z)                    0.384    0.095    4.028     0.000    1.468      [1.22, 1.77]
+  Urban (vs rural)           -0.007    0.202   -0.036     0.972    0.993      [0.67, 1.48]
+  Radio (v158)               -0.114    0.084   -1.356     0.175    0.892      [0.76, 1.05]
+
+CHVI effect in M1: OR per 1-SD increase = 1.468 (p = 5.63e-05)
+H02 (CHVI has no association with fever): REJECTED -> CHVI is significantly associated with fever.
+
+==============================================================================
+ RURAL-URBAN DISPARITIES IN THE CHVI  (Section 3.7.6)
+==============================================================================
+Distribution of vulnerability level by residence (column %)
+  Level                  Urban (%)   Rural (%)   n urban   n rural
+  Very Low                    24.1         0.6        77         4
+  Low                         41.1        16.4       131       111
+  Moderate                    21.0        36.4        67       246
+  High                        11.6        41.4        37       280
+  Very High                    2.2         5.2         7        35
+
+High + Very High : urban 13.8%  vs rural 46.6%
+Very Low + Low   : urban 65.2%  vs rural 17.0%
+
+Pearson chi-square = 283.107,  df = 4,  p = 4.76e-60,  Cramer's V = 0.533
+H03 (no rural-urban disparity): REJECTED -> significant rural-urban divide.
+
+==============================================================================
+ MOST VULNERABLE HOUSEHOLDS AND REGIONAL RANKING
+==============================================================================
+Top 10 households by CHVI* (min-heap, O(n log k))
+Rank  Cluster  HH    Region                Area        CHVI*  Level
+1     254      12    Bukedi                Rural       1.894  Very High
+2     236      30    Bukedi                Rural       1.843  Very High
+3     259      16    Bukedi                Rural       1.831  Very High
+4     252      23    Bukedi                Rural       1.831  Very High
+5     255      18    Bukedi                Rural       1.819  Very High
+6     258      4     Bukedi                Rural       1.798  Very High
+7     696      7     Karamoja              Rural       1.769  Very High
+8     462      6     West Nile             Rural       1.694  Very High
+9     602      3     Teso (Sebei & Teso)   Rural       1.689  Very High
+10    578      8     Teso (Sebei & Teso)   Urban       1.689  Very High
+
+Regions ranked by mean CHVI* (hash-map aggregation + sort)
+Rank  Region                 Mean CHVI*       n
+1     Karamoja                    1.271      55
+2     Bukedi                      0.961      55
+3     Teso (Sebei & Teso)         0.759      65
+4     West Nile                   0.613      78
+5     Lango                       0.300      71
+6     Busoga                      0.298      91
+7     Acholi                      0.236      65
+8     Kigezi                     -0.024      40
+9     Tooro                      -0.106      73
+10    Ankole                     -0.305      67
+11    Bunyoro                    -0.455      76
+12    Buganda                    -0.473     143
+13    Bugisu                     -0.587      53
+14    Kampala                    -1.922      63
